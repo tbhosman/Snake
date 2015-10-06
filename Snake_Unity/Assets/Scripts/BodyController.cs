@@ -1,17 +1,33 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class BodyController : MonoBehaviour {
+
+    public int distance;
+
+    private Vector3[] position_hist;
 
     public GameObject player;
 
     // Use this for initialization
     void Start () {
-	
-	}
+        position_hist = new Vector3[distance];
+        for (int i = 0; i < distance; i++)
+        {
+            position_hist[i] = player.transform.position;
+        }
+    }
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void FixedUpdate () {
+        transform.position = position_hist[0];
+
+        for (int i = 0; i < distance-1; i++)
+        {
+            position_hist[i] = position_hist[i + 1];
+        }
+        position_hist[distance-1] = player.transform.position;
+
+        transform.LookAt(player.transform.position);
+    }
 }

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         rb.angularVelocity = rotate;
 
         rb.velocity = transform.TransformDirection(new Vector3(speed,0,0));    //Keep speed in local x-direction
+
     }
 
     void Update()
