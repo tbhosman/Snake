@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, 0, speed);
         GameOverText.text = "";
-        count = 0;
+        count = 3;
         SetCountText();
     }
 
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-            CountText.text = "Count: " + count.ToString();
+            CountText.text = "Length: " + count.ToString();
     }
 
     void AddBodyPart()
