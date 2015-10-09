@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     public Text GameOverText;
     public Text CountText;
-    private GameObject[] Body;
+    private List<GameObject> Body;
     public GameObject Body_prefab;
     public GameObject start_block;
 
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Body = new List<GameObject>();
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, 0, speed);
         GameOverText.text = "";
@@ -75,15 +76,18 @@ public class PlayerController : MonoBehaviour
 
     void AddBodyPart()
     {
-        if (count == 0)
+        if (count == 4)
         {
-            Body[count + 2] = Instantiate(Body_prefab);
-            Body[count + 2].GetComponent<BodyController>().player = start_block; //Deze regel werkt niet        
+            GameObject body = Instantiate(Body_prefab);
+            body.GetComponent<BodyController>().player = start_block;
+            Body.Add(body);
+            //Body[count + 2] //Deze regel werkt niet        
         }
         else
         {
-            Body[count + 2] = Instantiate(Body_prefab);
-            Body[count + 2].GetComponent<BodyController>().player = Body[count + 1]; //Deze regel werkt ook niet
+            GameObject body = Instantiate(Body_prefab);
+            body.GetComponent<BodyController>().player = Body[count-5];
+            Body.Add(body);
         }
     }
 }
