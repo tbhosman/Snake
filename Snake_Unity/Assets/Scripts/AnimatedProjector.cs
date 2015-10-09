@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class AnimatedProjector : MonoBehaviour
 {
     public float fps = 60.0f;
     public List<Texture2D> frames;
+    //private List<Texture2D> frames_sorted = new List<Texture2D>();
     private int frameIndex;
-    private Projector projector;
+    public Projector projector;
 
     void Start()
     {
-        //frames = (Texture2D[])Resources.LoadAll("Caustics_png");
-        projector = (Projector)GetComponent("Underwater effect");
+        projector = GetComponent<Projector>();
+        frames = frames.OrderBy(go => go.ToString()).ToList();
         InvokeRepeating("NextFrame", 0, 1 / fps);
-        frameIndex = 0;
     }
 
     void NextFrame()
     {
-        projector.material.SetTexture("_MainTex", frames[frameIndex]);
+        projector.material.SetTexture("_ShadowTex", frames[frameIndex]);
         frameIndex = (frameIndex + 1) % frames.Count;
     }
 }

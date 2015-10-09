@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private List<GameObject> Body;
     public GameObject Body_prefab;
     public GameObject start_block;
+    public GameObject snake;
 
     private Rigidbody rb;
 
@@ -47,8 +48,6 @@ public class PlayerController : MonoBehaviour
         //Debug for adding body parts
         if (Input.GetKeyDown("space"))
         {
-            count++;
-            SetCountText();
             AddBodyPart();
         }
     }
@@ -58,8 +57,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pick-up"))
         {
             other.gameObject.SetActive(false);
-            count++;
-            SetCountText();
             AddBodyPart();
         }
         else
@@ -76,18 +73,21 @@ public class PlayerController : MonoBehaviour
 
     void AddBodyPart()
     {
-        if (count == 4)
+        if (count == 3) //For first block that is added
         {
             GameObject body = Instantiate(Body_prefab);
             body.GetComponent<BodyController>().player = start_block;
+            body.transform.parent = snake.transform;
             Body.Add(body);
-            //Body[count + 2] //Deze regel werkt niet        
         }
-        else
+        else //For every next block that is added
         {
             GameObject body = Instantiate(Body_prefab);
-            body.GetComponent<BodyController>().player = Body[count-5];
+            body.GetComponent<BodyController>().player = Body[count-4];
+            body.transform.parent = snake.transform;
             Body.Add(body);
         }
+        count++;
+        SetCountText();
     }
 }
