@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\FishBehaviour.cs" />
      <Compile Include="Assets\Scripts\FishSpawn.cs" />
+     <Compile Include="Assets\Scripts\GUIController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
