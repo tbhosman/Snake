@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float rotation_speed;
     private int count;
-    public Text GameOverText;
     public Text CountText;
     private List<GameObject> Body;
     public GameObject Body_prefab;
     public GameObject start_block;
     public GameObject snake;
+    public GameObject canvas;
 
     private Rigidbody rb;
 
@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
         Body = new List<GameObject>();
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, 0, speed);
-        GameOverText.text = "";
         count = 3;
         SetCountText();
     }
@@ -45,11 +44,10 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(0, 1, 0);
         }
 
-        //Debug for adding body parts
+        //Debug for adding body parts or dying
         if (Input.GetKeyDown("space"))
-        {
-            AddBodyPart();
-        }
+            //AddBodyPart();
+            canvas.GetComponent<GUIController>().GameOver();
     }
 
     void OnTriggerEnter(Collider other)
@@ -61,8 +59,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            GameOverText.text = "Game Over!";
-            //add particle effect, background and restart-button
+            canvas.GetComponent<GUIController>().GameOver();
+            //add particle effect
         }
     }
 

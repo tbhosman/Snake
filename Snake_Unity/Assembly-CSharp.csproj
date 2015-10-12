@@ -52,7 +52,9 @@
      <Compile Include="Assets\Scripts\FishBehaviour.cs" />
      <Compile Include="Assets\Scripts\FishSpawn.cs" />
      <Compile Include="Assets\Scripts\GUIController.cs" />
+     <Compile Include="Assets\Scripts\HighscoreData.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\yield.cs" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
  <Reference Include="UnityEngine.UI">
