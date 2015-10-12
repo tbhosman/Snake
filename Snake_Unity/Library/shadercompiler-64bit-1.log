@@ -1,3 +1,23 @@
 Base path: D:/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-10812
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-9872
 Cmd: getPlatforms
+Cmd: compileSnippet
+  api=4 type=0 insize=959 outsize=1404 kw=FOG_EXP2 pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=959 outsize=973 kw=FOG_EXP2 pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1277 outsize=1859 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1277 outsize=1379 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1470 outsize=1940 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1470 outsize=1087 kw=FOG_EXP pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1277 outsize=1834 kw=FOG_LINEAR pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1277 outsize=1379 kw=FOG_LINEAR pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1470 outsize=1859 kw=FOG_LINEAR pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1470 outsize=1087 kw=FOG_LINEAR pd= ok=1
