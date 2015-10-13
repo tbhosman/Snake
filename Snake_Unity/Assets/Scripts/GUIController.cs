@@ -11,7 +11,11 @@ public class GUIController : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject mainMenuUI;
     public GameObject areYouSureUI;
+    public GameObject newHighscoreUI;
+    public InputField highscoreName;
     public Text countdownText;
+    private int score;
+    public string playerName;
 
     void Start()
     {
@@ -19,6 +23,7 @@ public class GUIController : MonoBehaviour
         quitUI.SetActive(false);
         gameOverUI.SetActive(false);
         areYouSureUI.SetActive(false);
+        newHighscoreUI.SetActive(false);
         mainMenuUI.SetActive(true);
         countdownText.text = "";
         Time.timeScale = 0;
@@ -89,7 +94,28 @@ public class GUIController : MonoBehaviour
         Time.timeScale = 0;
         pauseUI.SetActive(false);
         quitUI.SetActive(false);
+        score = GameObject.Find("Player head").GetComponent<PlayerController>().count;
+
+        if (!PlayerPrefs.HasKey("NAME#1"))
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                PlayerPrefs.SetInt("SCORE#" + i, 3);
+                PlayerPrefs.SetString("NAME#" + i, "Snake");
+            }
+        }
+
+        if ((score > PlayerPrefs.GetInt("SCORE#1")) || (score > PlayerPrefs.GetInt("SCORE#2")) || (score > PlayerPrefs.GetInt("SCORE#3"))
+            || (score > PlayerPrefs.GetInt("SCORE#4")) || (score > PlayerPrefs.GetInt("SCORE#5")) || (score > PlayerPrefs.GetInt("SCORE#6"))
+             || (score > PlayerPrefs.GetInt("SCORE#7")) || (score > PlayerPrefs.GetInt("SCORE#8")) || (score > PlayerPrefs.GetInt("SCORE#9"))
+              || (score > PlayerPrefs.GetInt("SCORE#10")))
+        {
+            NewHighscore();
+        }
+        else
+        {
         gameOverUI.SetActive(true);
+        }
     }
 
     public void StartGame()
@@ -119,4 +145,67 @@ public class GUIController : MonoBehaviour
         areYouSureUI.SetActive(true);
     }
 
+    public void toHighscore()
+    {
+        Application.LoadLevel("Highscore");
+    }
+
+    public void NewHighscore()
+    {
+        newHighscoreUI.SetActive(true);
+    }
+
+    public void SetNewHighscore()
+    {
+        if (score > PlayerPrefs.GetInt("SCORE#1"))
+        {
+            PlayerPrefs.SetInt("SCORE#1", score);
+            PlayerPrefs.SetString("NAME#1", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#2"))
+        {
+            PlayerPrefs.SetInt("SCORE#2", score);
+            PlayerPrefs.SetString("NAME#2", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#3"))
+        {
+            PlayerPrefs.SetInt("SCORE#3", score);
+            PlayerPrefs.SetString("NAME#3", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#4"))
+        {
+            PlayerPrefs.SetInt("SCORE#4", score);
+            PlayerPrefs.SetString("NAME#4", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#5"))
+        {
+            PlayerPrefs.SetInt("SCORE#5", score);
+            PlayerPrefs.SetString("NAME#5", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#6"))
+        {
+            PlayerPrefs.SetInt("SCORE#6", score);
+            PlayerPrefs.SetString("NAME#6", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#7"))
+        {
+            PlayerPrefs.SetInt("SCORE#7", score);
+            PlayerPrefs.SetString("NAME#7", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#8"))
+        {
+            PlayerPrefs.SetInt("SCORE#8", score);
+            PlayerPrefs.SetString("NAME#8", highscoreName.text);
+        }
+        else if (score > PlayerPrefs.GetInt("SCORE#9"))
+        {
+            PlayerPrefs.SetInt("SCORE#9", score);
+            PlayerPrefs.SetString("NAME#9", highscoreName.text);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("SCORE#10", score);
+            PlayerPrefs.SetString("NAME#10", highscoreName.text);
+        }
+    }
 }

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float rotation_speed;
-    private int count;
+    public int count;
     public Text CountText;
     private List<GameObject> Body;
     public GameObject Body_prefab;
@@ -46,8 +46,7 @@ public class PlayerController : MonoBehaviour
 
         //Debug for adding body parts or dying
         if (Input.GetKeyDown("space"))
-            //AddBodyPart();
-            canvas.GetComponent<GUIController>().GameOver();
+            AddBodyPart();
     }
 
     void OnTriggerEnter(Collider other)
