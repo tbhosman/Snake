@@ -18,7 +18,7 @@ public class FishBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = transform.TransformDirection(new Vector3(speed, 0, 0));
+        rb.velocity = transform.TransformDirection(new Vector3(0, 0,speed));
     }
 
     void OnTriggerStay(Collider other)

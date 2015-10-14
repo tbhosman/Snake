@@ -51,9 +51,9 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pick-up"))
+        if (other.gameObject.CompareTag("Fish"))
         {
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             AddBodyPart();
         }
         else
