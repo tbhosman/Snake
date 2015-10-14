@@ -1630,7 +1630,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ed49d799834964b47b0fed0566f4b760, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1670,7 +1670,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 869478099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .455553055, y: 2.09924316, z: -1.5148983}
+  m_LocalPosition: {x: .455553055, y: 2.09924316, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 875673685}
@@ -2285,7 +2285,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 446982, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.51999998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 446982, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2977,6 +2977,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1342143232}
+--- !u!1 &1525727872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1525727874}
+  - 114: {fileID: 1525727873}
+  m_Layer: 0
+  m_Name: Scenery
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1525727873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525727872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a2f87678bd6eb4d82da09792543846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boat_chance: .0199999996
+  boatPrefab: {fileID: 185416, guid: d3c03b34cba106e4184d2bb279ed7103, type: 2}
+--- !u!4 &1525727874
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525727872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &1642121559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1711629774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3682,7 +3723,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 446982, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.5148983
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 446982, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}
       propertyPath: m_LocalRotation.x
