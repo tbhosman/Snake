@@ -5,7 +5,7 @@ public class FishSpawn : MonoBehaviour
 {
     public GameObject Item;
     private GameObject[] respawns;
-    private int fishAmount = 3;
+    public int fishAmount;
 
     // Use this for initialization
     void Start()

@@ -6,7 +6,6 @@ public class AnimatedProjector : MonoBehaviour
 {
     public float fps = 60.0f;
     public List<Texture2D> frames;
-    //private List<Texture2D> frames_sorted = new List<Texture2D>();
     private int frameIndex;
     public Projector projector;
 
@@ -14,7 +13,7 @@ public class AnimatedProjector : MonoBehaviour
     {
         projector = GetComponent<Projector>();
         frames = frames.OrderBy(go => go.ToString()).ToList();
-        InvokeRepeating("NextFrame", 0, 1 / fps);
+        InvokeRepeating("NextFrame", 0, 1 / fps); //keep repeating NextFrame() every 1/fps seconds
     }
 
     void NextFrame()

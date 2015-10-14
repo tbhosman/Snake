@@ -14,6 +14,7 @@ public class GUIController : MonoBehaviour
     public GameObject newHighscoreUI;
     public InputField highscoreName;
     public Text countdownText;
+    public Text scoreText;
     private int score;
     public string playerName;
 
@@ -153,6 +154,7 @@ public class GUIController : MonoBehaviour
     public void NewHighscore()
     {
         newHighscoreUI.SetActive(true);
+        scoreText.text = "Your total length was " + score.ToString() + ".";
     }
 
     public void SetNewHighscore()
@@ -161,6 +163,7 @@ public class GUIController : MonoBehaviour
         {
             PlayerPrefs.SetInt("SCORE#1", score);
             PlayerPrefs.SetString("NAME#1", highscoreName.text);
+
         }
         else if (score > PlayerPrefs.GetInt("SCORE#2"))
         {

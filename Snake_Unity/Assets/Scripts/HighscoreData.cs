@@ -7,7 +7,7 @@ public class HighscoreData : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    if (!PlayerPrefs.HasKey("highscore0"))
+	    if (!PlayerPrefs.HasKey("NAME#"))
         {
             for (int i = 1; i <= 10; i++)
                 {

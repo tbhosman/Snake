@@ -9,18 +9,16 @@ public class BodyController : MonoBehaviour {
 
     public GameObject player;
 
-    // Use this for initialization
     void Start () {
-        position_hist = new Vector3[distance];
+        position_hist = new Vector3[distance]; //generate a history array of length distance
         for (int i = 0; i < distance; i++)
         {
-            position_hist[i] = player.transform.position;
+            position_hist[i] = player.transform.position; //Fill history with current position of block to follow
         }
     }
 	
-	// Update is called once per frame
 	void FixedUpdate () {
-        transform.position = position_hist[0];
+        transform.position = position_hist[0]; //Take oldest position in history as new position
 
         for (int i = 0; i < distance-1; i++)
         {
