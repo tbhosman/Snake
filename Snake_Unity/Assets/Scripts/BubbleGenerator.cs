@@ -16,8 +16,8 @@ public class BubbleGenerator : MonoBehaviour {
         for (int i = 0; i < bubbles; i++)
         {
             Vector3 rand_pos = new Vector3(Random.Range(min_x, max_x), 1, Random.Range(min_z, max_z));
-            GameObject Bubble = (GameObject) Instantiate(bubble_object,rand_pos,Quaternion.Euler(new Vector3(-90,0,0)));
-            Bubble.transform.parent = bubble_parent.transform;
+            GameObject Bubble = (GameObject) Instantiate(bubble_object,rand_pos,Quaternion.Euler(new Vector3(-90,0,0))); //Randomly place bubble effect
+            Bubble.transform.parent = bubble_parent.transform; //Add as child to 'Bubbles'
         }	
 	}
 }

@@ -22,10 +22,10 @@ public class BodyController : MonoBehaviour {
 
         for (int i = 0; i < distance-1; i++)
         {
-            position_hist[i] = position_hist[i + 1];
+            position_hist[i] = position_hist[i + 1]; //Shift all positions by one
         }
-        position_hist[distance-1] = player.transform.position;
+        position_hist[distance-1] = player.transform.position; //Add new position
 
-        transform.LookAt(player.transform.position);
+        transform.LookAt(player.transform.position); //Get proper rotation
     }
 }
