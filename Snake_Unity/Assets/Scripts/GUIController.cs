@@ -95,7 +95,7 @@ public class GUIController : MonoBehaviour
         Time.timeScale = 0;
         pauseUI.SetActive(false);
         quitUI.SetActive(false);
-        score = GameObject.Find("Player head").GetComponent<PlayerController>().count;
+        score = GameObject.Find("Player head").GetComponent<PlayerController>().score;
 
         if (!PlayerPrefs.HasKey("NAME#1"))
         {
@@ -106,16 +106,13 @@ public class GUIController : MonoBehaviour
             }
         }
 
-        if ((score > PlayerPrefs.GetInt("SCORE#1")) || (score > PlayerPrefs.GetInt("SCORE#2")) || (score > PlayerPrefs.GetInt("SCORE#3"))
-            || (score > PlayerPrefs.GetInt("SCORE#4")) || (score > PlayerPrefs.GetInt("SCORE#5")) || (score > PlayerPrefs.GetInt("SCORE#6"))
-             || (score > PlayerPrefs.GetInt("SCORE#7")) || (score > PlayerPrefs.GetInt("SCORE#8")) || (score > PlayerPrefs.GetInt("SCORE#9"))
-              || (score > PlayerPrefs.GetInt("SCORE#10")))
+        if (score > PlayerPrefs.GetInt("SCORE#10"))
         {
             NewHighscore();
         }
         else
         {
-        gameOverUI.SetActive(true);
+            gameOverUI.SetActive(true);
         }
     }
 

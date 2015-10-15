@@ -6,6 +6,7 @@ public class FishSpawn : MonoBehaviour
     public GameObject Item;
     private GameObject[] respawns;
     public int fishAmount;
+    private int random_scale;
 
     // Use this for initialization
     void Start()

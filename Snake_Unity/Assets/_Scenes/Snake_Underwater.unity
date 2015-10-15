@@ -3163,11 +3163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc46aed90404dd4ba11a5a3bbfbf9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_x: 45
-  min_x: -45
-  max_z: 40
-  min_z: -45
-  bubbles: 50
+  max_x: 70
+  min_x: -70
+  max_z: 70
+  min_z: -70
+  bubbles: 100
   bubble_object: {fileID: 149922, guid: 28ccaf9799a73a14bba54049cb2d869b, type: 2}
   bubble_parent: {fileID: 1680597437}
 --- !u!1 &1711629773
@@ -3700,6 +3700,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1007129572}
         m_MethodName: ToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1007129572}
+        m_MethodName: SetNewHighscore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
