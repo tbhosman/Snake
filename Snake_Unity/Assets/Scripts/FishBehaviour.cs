@@ -6,6 +6,8 @@ public class FishBehaviour : MonoBehaviour
     public float speed;
 
     private Rigidbody rb;
+    private int collision_count;
+    public int collision_limit;
 
     // Use this for initialization
     void Start()
@@ -23,10 +25,17 @@ public class FishBehaviour : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Boundary"))
+        collision_count++;
+        if (other.gameObject.CompareTag("Rock") || collision_count>collision_limit)
         {
-            transform.rotation = Quaternion.AngleAxis(Random.Range(-180.0F, 180.0F), Vector3.up);
+            Destroy(gameObject);
         }
+        else
+        {
+            transform.rotation = Quaternion.AngleAxis(transform.rotation.y-180, Vector3.up);
+            //Random.Range(-180.0F, 180.0F)
+        }
+
     }
 }
 

@@ -3,11 +3,11 @@ using System.Collections;
 
 public class SceneryGenerator : MonoBehaviour {
 
-    //private float random_number;
     public float boat_chance;
     public GameObject boatPrefab;
     public float rock_chance;
     public GameObject[] rockPrefab;
+    public GameObject[] rockPrefabSphere;
     int index;
 
     private float random_number;
@@ -27,7 +27,9 @@ public class SceneryGenerator : MonoBehaviour {
                 {
                     index = Random.Range(0, rockPrefab.Length);
                     GameObject rock = (GameObject)Instantiate(rockPrefab[index], transform.TransformPoint(new Vector3(x, 0, z) + LocationVariety()), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+                    GameObject rock_sphere = (GameObject)Instantiate(rockPrefabSphere[index], rock.transform.position,rock.transform.rotation);
                     rock.transform.parent = GameObject.Find("Scenery").transform;
+                    rock_sphere.transform.parent = rock.transform;
                 }
             }
         }
@@ -37,8 +39,12 @@ public class SceneryGenerator : MonoBehaviour {
             index = Random.Range(0, rockPrefab.Length);
             GameObject rock1 = (GameObject)Instantiate(rockPrefab[index], transform.TransformPoint(new Vector3(x, 0, 70) + LocationVariety()), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
             GameObject rock2 = (GameObject)Instantiate(rockPrefab[index], transform.TransformPoint(new Vector3(x, 0, -70) + LocationVariety()), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+            GameObject rock_sphere1 = (GameObject)Instantiate(rockPrefabSphere[index], rock1.transform.position, rock1.transform.rotation);
+            GameObject rock_sphere2 = (GameObject)Instantiate(rockPrefabSphere[index], rock2.transform.position, rock2.transform.rotation);
             rock1.transform.parent = GameObject.Find("Scenery").transform;
             rock2.transform.parent = GameObject.Find("Scenery").transform;
+            rock_sphere1.transform.parent = rock1.transform;
+            rock_sphere2.transform.parent = rock2.transform;
         }
 
         for (float z = -70; z <= 70; z = z + 2)
@@ -46,8 +52,12 @@ public class SceneryGenerator : MonoBehaviour {
             index = Random.Range(0, rockPrefab.Length);
             GameObject rock1 = (GameObject)Instantiate(rockPrefab[index], transform.TransformPoint(new Vector3(70, 0, z) + LocationVariety()), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
             GameObject rock2 = (GameObject)Instantiate(rockPrefab[index], transform.TransformPoint(new Vector3(-70, 0, z) + LocationVariety()), Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+            GameObject rock_sphere1 = (GameObject)Instantiate(rockPrefabSphere[index], rock1.transform.position, rock1.transform.rotation);
+            GameObject rock_sphere2 = (GameObject)Instantiate(rockPrefabSphere[index], rock2.transform.position, rock2.transform.rotation);
             rock1.transform.parent = GameObject.Find("Scenery").transform;
             rock2.transform.parent = GameObject.Find("Scenery").transform;
+            rock_sphere1.transform.parent = rock1.transform;
+            rock_sphere2.transform.parent = rock2.transform;
         }
     }
 

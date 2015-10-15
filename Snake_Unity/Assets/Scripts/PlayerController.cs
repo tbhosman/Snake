@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if ((Mathf.Abs(transform.position.x) > 60) || (Mathf.Abs(transform.position.z) > 60))
+        if ((Mathf.Abs(transform.position.x) > 80) || (Mathf.Abs(transform.position.z) > 80))
         {
             transform.position = new Vector3(0, 1, 0);
         }
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             AddBodyPart();
         }
-        else if (!other.gameObject.CompareTag("StartBody"))
+        else if (!other.gameObject.CompareTag("StartBody") && !other.gameObject.CompareTag("Boundary"))
         {
             canvas.GetComponent<GUIController>().GameOver();
             //add particle effect
