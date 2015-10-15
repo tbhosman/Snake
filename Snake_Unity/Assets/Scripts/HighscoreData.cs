@@ -28,7 +28,7 @@ public class HighscoreData : MonoBehaviour {
 	    
 	}
 
-    void BackToMenu()
+    public void BackToMenu()
     {
         Application.LoadLevel("Snake_Underwater");
     }

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         Body = new List<GameObject>();
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, 0, speed);
+        rb.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
         count = 3;
         SetCountText();
         score = 0;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
         Vector3 rotate = new Vector3(0, moveHorizontal * rotation_speed, 0);   //Use input to rotate player
         rb.angularVelocity = rotate;
 
-        rb.velocity = transform.TransformDirection(new Vector3(speed,0,0));    //Keep speed in local x-direction
+        rb.velocity = transform.TransformDirection(new Vector3(0,0,speed));    //Keep speed in local x-direction
 
     }
 
@@ -49,10 +50,10 @@ public class PlayerController : MonoBehaviour
         //Debug for adding body parts or dying
         if (Input.GetKeyDown("space"))
         {
-            AddBodyPart();
-            AddBodyPart();
-            AddBodyPart();
             score = score + count;
+            AddBodyPart();
+            AddBodyPart();
+            AddBodyPart();
         }
     }
 
@@ -61,11 +62,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Fish"))
        { 
             Destroy(other.gameObject);
-
-            AddBodyPart();
-            AddBodyPart();
-            AddBodyPart();
             score = score + count;
+            AddBodyPart();
+            AddBodyPart();
+            AddBodyPart();
         }
         else if (!other.gameObject.CompareTag("StartBody") && !other.gameObject.CompareTag("Boundary"))
         {
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-            CountText.text = "Length: " + score.ToString();
+            CountText.text = "Score: " + score.ToString();
     }
 
     void AddBodyPart()

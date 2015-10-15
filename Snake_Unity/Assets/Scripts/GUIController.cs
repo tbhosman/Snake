@@ -154,7 +154,7 @@ public class GUIController : MonoBehaviour
     public void NewHighscore()
     {
         newHighscoreUI.SetActive(true);
-        scoreText.text = "Your total length was " + score.ToString() + ".";
+        scoreText.text = "Your total score was " + score.ToString() + ".";
     }
 
     public void SetNewHighscore()
