@@ -1701,14 +1701,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff719025bdc12d42bfe1ef56b2cdb62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rotation_speed: 1
+  speed: 10
+  rotation_speed: 3
   count: 0
   CountText: {fileID: 1781684345}
   Body_prefab: {fileID: 193318, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}
   start_block: {fileID: 1158702244}
   snake: {fileID: 875673684}
   canvas: {fileID: 1007129567}
+  partsPerFish: 3
 --- !u!1 &875673684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,6 +3786,10 @@ Prefab:
     - target: {fileID: 193318, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}
       propertyPath: m_TagString
       value: StartBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484364, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}
+      propertyPath: distance
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e05ca9033e2f6ad489bee62b772da46c, type: 2}

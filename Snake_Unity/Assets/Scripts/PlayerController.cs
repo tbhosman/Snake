@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float rotation_speed;
     public int count;
+    public int score;
     public Text CountText;
     private List<GameObject> Body;
     public GameObject Body_prefab;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(0, 0, speed);
         count = 3;
         SetCountText();
+        score = 0;
     }
 
     void FixedUpdate()
@@ -46,15 +48,24 @@ public class PlayerController : MonoBehaviour
 
         //Debug for adding body parts or dying
         if (Input.GetKeyDown("space"))
+        {
             AddBodyPart();
+            AddBodyPart();
+            AddBodyPart();
+            score = score + count;
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Fish"))
-        {
+       { 
             Destroy(other.gameObject);
+
             AddBodyPart();
+            AddBodyPart();
+            AddBodyPart();
+            score = score + count;
         }
         else if (!other.gameObject.CompareTag("StartBody") && !other.gameObject.CompareTag("Boundary"))
         {
@@ -65,21 +76,21 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-            CountText.text = "Length: " + count.ToString();
+            CountText.text = "Length: " + score.ToString();
     }
 
     void AddBodyPart()
     {
         if (count == 3) //For first block that is added
         {
-            GameObject body = Instantiate(Body_prefab);
+            GameObject body = (GameObject)Instantiate(Body_prefab, new Vector3(0, -5, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
             body.GetComponent<BodyController>().player = start_block;
             body.transform.parent = snake.transform;
             Body.Add(body);
         }
         else //For every next block that is added
         {
-            GameObject body = Instantiate(Body_prefab);
+            GameObject body = (GameObject)Instantiate(Body_prefab, new Vector3(0,-5,0),Quaternion.Euler(new Vector3(0,0,0)));
             body.GetComponent<BodyController>().player = Body[count-4];
             body.transform.parent = snake.transform;
             Body.Add(body);

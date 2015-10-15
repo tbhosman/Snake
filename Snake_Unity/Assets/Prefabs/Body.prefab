@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c602eb4945bb9c4eb4d7a28a8e07e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 15
+  distance: 4
   player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
@@ -112,7 +112,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: distance
-      value: 15
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Constraints
