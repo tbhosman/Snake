@@ -30,10 +30,13 @@ public class FishBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("Fish"))
+        {
+
+        }
         else
         {
-            transform.rotation = Quaternion.AngleAxis(transform.rotation.y-180, Vector3.up);
-            //Random.Range(-180.0F, 180.0F)
+            transform.rotation = Quaternion.AngleAxis(Random.Range(-180.0F, 180.0F), Vector3.up);
         }
 
     }
