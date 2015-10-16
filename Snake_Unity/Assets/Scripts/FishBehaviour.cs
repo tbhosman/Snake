@@ -12,6 +12,7 @@ public class FishBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        speed = Random.Range(3.0f, 6.0f);
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, 0, speed);
         transform.rotation = Quaternion.AngleAxis(Random.Range(-180.0F, 180.0F), Vector3.up);
