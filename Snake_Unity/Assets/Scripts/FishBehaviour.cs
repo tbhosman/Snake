@@ -15,6 +15,7 @@ public class FishBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, 0, speed);
         transform.rotation = Quaternion.AngleAxis(Random.Range(-180.0F, 180.0F), Vector3.up);
+        transform.localScale += new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
     }
 
     // Update is called once per frame

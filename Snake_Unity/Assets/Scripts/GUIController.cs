@@ -30,20 +30,20 @@ public class GUIController : MonoBehaviour
         mainMenuUI.SetActive(true);
         countdownText.text = "";
         Time.timeScale = 0;
+        GameObject.Find("MenuSound").GetComponent<MenuSoundController>().playMenuMusic();
     }
 
     void Update()
     {
-        //Debug for death
-        if (Input.GetKeyDown(KeyCode.D))
-            GameOver();
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameOverUI.activeSelf && !mainMenuUI.activeSelf)
+        if(Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 1)
         {
-            if (!quitUI.activeSelf)
-            {
-                paused = !paused;
-            }
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameOverUI.activeSelf && !mainMenuUI.activeSelf && (countdownText.text == ""))
+        {
             
             if(quitUI.activeSelf)
             {
@@ -55,24 +55,17 @@ public class GUIController : MonoBehaviour
             {
                 ToMenu();
             }
-            
-            if (paused)
+
+            if (pauseUI.activeSelf)
             {
-                Time.timeScale = 0;
-                pauseUI.SetActive(true);
-            }
-            else
-            {
-                Time.timeScale = 1;
-                pauseUI.SetActive(false);
+                ContinuePress();
             }
         }
     }
 
     public void ContinuePress()
     {
-        paused = false;
-        Time.timeScale = 1;
+        StartCoroutine(getReady());
         pauseUI.SetActive(false);
     }
 
@@ -120,23 +113,46 @@ public class GUIController : MonoBehaviour
 
     public void StartGame()
     {
+        GameObject.Find("MenuSound").GetComponent<MenuSoundController>().stopMenuMusic();
         gameOverUI.SetActive(false);
         mainMenuUI.SetActive(false);
-        countdownText.text = "3";
-        StartCoroutine(waitSomeTime());
-        countdownText.text = "2";
-        StartCoroutine(waitSomeTime());
-        countdownText.text = "1";
-        StartCoroutine(waitSomeTime());
-        countdownText.text = "GO!";
-        StartCoroutine(waitSomeTime());
-        countdownText.text = "";
-        Time.timeScale = 1;
+        pauseUI.SetActive(false);
+        quitUI.SetActive(false);
+        newHighscoreUI.SetActive(false);
+        areYouSureUI.SetActive(false);
+        StartCoroutine(getReady());
+        GameObject.Find("PlaySound").GetComponent<PlaySoundController>().playPlayMusic();
     }
 
-    IEnumerator waitSomeTime()
+    IEnumerator getReady()
     {
-        yield return new WaitForSeconds(2);
+        countdownText.enabled = true;
+        countdownText.text = "3";
+        yield return StartCoroutine(WaitForRealSeconds(1.0f));
+
+        countdownText.text = "2";
+        yield return StartCoroutine(WaitForRealSeconds(1.0f));
+
+        countdownText.text = "1";
+        yield return StartCoroutine(WaitForRealSeconds(1.0f));
+
+        countdownText.text = "GO!";
+        yield return StartCoroutine(WaitForRealSeconds(1.0f));
+
+        countdownText.text = "";
+
+        Time.timeScale = 1;
+        countdownText.enabled = false;
+    }
+
+    IEnumerator WaitForRealSeconds(float waitTime)
+    {
+        float endTime = Time.realtimeSinceStartup + waitTime;
+
+        while (Time.realtimeSinceStartup < endTime)
+        {
+            yield return null;
+        }
     }
 
     public void AreYouSure()

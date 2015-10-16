@@ -11,7 +11,7 @@ public class FishSpawn : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Vector3 RandomLocation = new Vector3(Random.Range(-50.0F, 50.0F), 1F, Random.Range(-50.0F, 50.0F));
+        Vector3 RandomLocation = new Vector3(Random.Range(-50.0F, 50.0F), 1.5F, Random.Range(-50.0F, 50.0F));
         GameObject fish = (GameObject) Instantiate(Item, RandomLocation, Quaternion.AngleAxis(Random.Range(-180.0F, 180.0F), Vector3.up));
         fish.transform.parent = GameObject.Find("Fishes").transform;
     }
@@ -22,7 +22,7 @@ public class FishSpawn : MonoBehaviour
         respawns = GameObject.FindGameObjectsWithTag("Fish");
         if (respawns.Length < fishAmount)
         {
-            Vector3 RandomLocation = new Vector3(Random.Range(-50.0F, 50.0F), 1F, Random.Range(-50.0F, 50.0F));
+            Vector3 RandomLocation = new Vector3(Random.Range(-50.0F, 50.0F), 1.5F, Random.Range(-50.0F, 50.0F));
             GameObject fish = (GameObject) Instantiate(Item, RandomLocation, Quaternion.AngleAxis(Random.Range(-180.0F, 180.0F), Vector3.up));
             fish.transform.parent = GameObject.Find("Fishes").transform;
         }

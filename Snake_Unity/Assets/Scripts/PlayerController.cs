@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
     public GameObject snake;
     public GameObject canvas;
 
+    public AudioClip bite1;
+    public AudioClip bite2;
+    public AudioClip bite3;
+    private AudioSource bite_source;
+
     private Rigidbody rb;
 
     void Start()
@@ -27,6 +32,7 @@ public class PlayerController : MonoBehaviour
         count = 3;
         SetCountText();
         score = 0;
+        bite_source = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -46,26 +52,31 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(0, 1, 0);
         }
-
-        //Debug for adding body parts or dying
-        if (Input.GetKeyDown("space"))
-        {
-            score = score + count;
-            AddBodyPart();
-            AddBodyPart();
-            AddBodyPart();
-        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Fish"))
-       { 
+       {
             Destroy(other.gameObject);
             score = score + count;
             AddBodyPart();
             AddBodyPart();
             AddBodyPart();
+            //randomly choose an eating sound
+            int random_number = Random.Range(1, 4);
+            if (random_number == 1)
+            {
+                bite_source.PlayOneShot(bite1, 0.4f);
+            }
+            else if (random_number == 2)
+            {
+                bite_source.PlayOneShot(bite2, 0.3f);
+            }
+            else if (random_number == 3)
+            {
+                bite_source.PlayOneShot(bite3, 0.3f);
+            }
         }
         else if (!other.gameObject.CompareTag("StartBody") && !other.gameObject.CompareTag("Boundary"))
         {
