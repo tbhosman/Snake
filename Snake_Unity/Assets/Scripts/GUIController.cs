@@ -87,7 +87,7 @@ public class GUIController : MonoBehaviour
 
     public void GameOver()
     {
-        GameObject.Find("playSound").GetComponent<PlaySoundController>().stopPlayMusic();
+        GameObject.Find("PlaySound").GetComponent<PlaySoundController>().stopPlayMusic();
         Time.timeScale = 0;
         pauseUI.SetActive(false);
         quitUI.SetActive(false);
