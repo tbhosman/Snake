@@ -87,6 +87,7 @@ public class GUIController : MonoBehaviour
 
     public void GameOver()
     {
+        GameObject.Find("playSound").GetComponent<PlaySoundController>().stopPlayMusic();
         Time.timeScale = 0;
         pauseUI.SetActive(false);
         quitUI.SetActive(false);
@@ -104,10 +105,12 @@ public class GUIController : MonoBehaviour
         if (score > PlayerPrefs.GetInt("SCORE#10"))
         {
             NewHighscore();
+            //Add highscore sound here
         }
         else
         {
             gameOverUI.SetActive(true);
+            GameObject.Find("GameOverSound").GetComponent<GameOverSoundController>().playGameOverMusic();
         }
     }
 
@@ -176,47 +179,56 @@ public class GUIController : MonoBehaviour
     {
         if (score > PlayerPrefs.GetInt("SCORE#1"))
         {
+            ShiftHighscore(2);
             PlayerPrefs.SetInt("SCORE#1", score);
             PlayerPrefs.SetString("NAME#1", messageToSend);
 
         }
         else if (score > PlayerPrefs.GetInt("SCORE#2"))
         {
+            ShiftHighscore(3);
             PlayerPrefs.SetInt("SCORE#2", score);
             PlayerPrefs.SetString("NAME#2", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#3"))
         {
+            ShiftHighscore(4);
             PlayerPrefs.SetInt("SCORE#3", score);
             PlayerPrefs.SetString("NAME#3", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#4"))
         {
+            ShiftHighscore(5);
             PlayerPrefs.SetInt("SCORE#4", score);
             PlayerPrefs.SetString("NAME#4", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#5"))
         {
+            ShiftHighscore(6);
             PlayerPrefs.SetInt("SCORE#5", score);
             PlayerPrefs.SetString("NAME#5", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#6"))
         {
+            ShiftHighscore(7);
             PlayerPrefs.SetInt("SCORE#6", score);
             PlayerPrefs.SetString("NAME#6", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#7"))
         {
+            ShiftHighscore(8);
             PlayerPrefs.SetInt("SCORE#7", score);
             PlayerPrefs.SetString("NAME#7", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#8"))
         {
+            ShiftHighscore(9);
             PlayerPrefs.SetInt("SCORE#8", score);
             PlayerPrefs.SetString("NAME#8", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#9"))
         {
+            ShiftHighscore(10);
             PlayerPrefs.SetInt("SCORE#9", score);
             PlayerPrefs.SetString("NAME#9", messageToSend);
         }
@@ -242,5 +254,14 @@ public class GUIController : MonoBehaviour
         messageToSend = inputText.text;
         SetNewHighscore();
         ToMenu();
+    }
+
+    public void ShiftHighscore(int start)
+    {
+        for (int i = 10; i>=start; i--)
+        {
+            PlayerPrefs.SetInt("SCORE#" + i, PlayerPrefs.GetInt("SCORE#" + (i - 1)));
+            PlayerPrefs.SetString("NAME#" + i, PlayerPrefs.GetString("NAME#" + (i - 1)));
+        }
     }
 }

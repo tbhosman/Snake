@@ -8,11 +8,11 @@ public class MenuSoundController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        menuSource = GetComponent<AudioSource>();
     }
 	
 	public void playMenuMusic()
     {
+        menuSource = GetComponent<AudioSource>();
         menuSource.PlayOneShot(menuClip);
     }
     

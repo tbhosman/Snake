@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\FishBehaviour.cs" />
      <Compile Include="Assets\Scripts\FishSpawn.cs" />
      <Compile Include="Assets\Scripts\GUIController.cs" />
+     <Compile Include="Assets\Scripts\GameOverSoundController.cs" />
      <Compile Include="Assets\Scripts\HighscoreData.cs" />
      <Compile Include="Assets\Scripts\MenuSoundController.cs" />
      <Compile Include="Assets\Scripts\PlaySoundController.cs" />
