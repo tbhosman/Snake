@@ -17,6 +17,8 @@ public class GUIController : MonoBehaviour
     public Text scoreText;
     private int score;
     public string playerName;
+    public Text inputText;
+    string messageToSend;
 
     void Start()
     {
@@ -159,53 +161,70 @@ public class GUIController : MonoBehaviour
         if (score > PlayerPrefs.GetInt("SCORE#1"))
         {
             PlayerPrefs.SetInt("SCORE#1", score);
-            PlayerPrefs.SetString("NAME#1", highscoreName.text);
+            PlayerPrefs.SetString("NAME#1", messageToSend);
 
         }
         else if (score > PlayerPrefs.GetInt("SCORE#2"))
         {
             PlayerPrefs.SetInt("SCORE#2", score);
-            PlayerPrefs.SetString("NAME#2", highscoreName.text);
+            PlayerPrefs.SetString("NAME#2", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#3"))
         {
             PlayerPrefs.SetInt("SCORE#3", score);
-            PlayerPrefs.SetString("NAME#3", highscoreName.text);
+            PlayerPrefs.SetString("NAME#3", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#4"))
         {
             PlayerPrefs.SetInt("SCORE#4", score);
-            PlayerPrefs.SetString("NAME#4", highscoreName.text);
+            PlayerPrefs.SetString("NAME#4", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#5"))
         {
             PlayerPrefs.SetInt("SCORE#5", score);
-            PlayerPrefs.SetString("NAME#5", highscoreName.text);
+            PlayerPrefs.SetString("NAME#5", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#6"))
         {
             PlayerPrefs.SetInt("SCORE#6", score);
-            PlayerPrefs.SetString("NAME#6", highscoreName.text);
+            PlayerPrefs.SetString("NAME#6", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#7"))
         {
             PlayerPrefs.SetInt("SCORE#7", score);
-            PlayerPrefs.SetString("NAME#7", highscoreName.text);
+            PlayerPrefs.SetString("NAME#7", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#8"))
         {
             PlayerPrefs.SetInt("SCORE#8", score);
-            PlayerPrefs.SetString("NAME#8", highscoreName.text);
+            PlayerPrefs.SetString("NAME#8", messageToSend);
         }
         else if (score > PlayerPrefs.GetInt("SCORE#9"))
         {
             PlayerPrefs.SetInt("SCORE#9", score);
-            PlayerPrefs.SetString("NAME#9", highscoreName.text);
+            PlayerPrefs.SetString("NAME#9", messageToSend);
         }
         else
         {
             PlayerPrefs.SetInt("SCORE#10", score);
-            PlayerPrefs.SetString("NAME#10", highscoreName.text);
+            PlayerPrefs.SetString("NAME#10", messageToSend);
         }
+    }
+
+    public void RelayMessageInputField()
+    {
+        if (Input.GetButtonDown("Submit"))
+        {
+            messageToSend = inputText.text;
+            SetNewHighscore();
+            ToMenu();
+        }
+    }
+
+    public void RelayMessageEnter()
+    {
+        messageToSend = inputText.text;
+        SetNewHighscore();
+        ToMenu();
     }
 }
