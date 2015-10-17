@@ -105,7 +105,7 @@ public class GUIController : MonoBehaviour
         if (score > PlayerPrefs.GetInt("SCORE#10"))
         {
             NewHighscore();
-            //Add highscore sound here
+            GameObject.Find("HighscoreSound").GetComponent<HighscoreSoundController>().playHighscoreMusic();
         }
         else
         {
