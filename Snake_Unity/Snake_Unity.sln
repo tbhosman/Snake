@@ -1,23 +1,19 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{548A8DD6-2900-FA61-3992-41740110A0AB}") = "Snake_Unity", "Assembly-CSharp.csproj", "{C3F3F581-31A7-D50A-61C6-4C9EE2C520E8}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C3F3F581-31A7-D50A-61C6-4C9EE2C520E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3F3F581-31A7-D50A-61C6-4C9EE2C520E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3F3F581-31A7-D50A-61C6-4C9EE2C520E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3F3F581-31A7-D50A-61C6-4C9EE2C520E8}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																									GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																													GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																																																										GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> 3ebded7a66ecc415193fc654e99fc1acf2975372
